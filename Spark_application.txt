@@ -16,4 +16,9 @@ spark = SQLContext(sc)
 #reading revenue data file
 revenue = spark.read.csv("file:///home/gopalkrishna/Spark_dir/revenue")
 
+#file processing
+revenue1 = revenue.selectExpr("cast (_c0 as Int) id","cast (_c1 as Int) Revenue","cast (_c2 as String) Month"))
+revenu1.registerTempTable("Revenue")
+revenue_final = spark.sql("select id,max(if (Month = 'Jan', Revenue, null)) as Jan_revenue, max(if (Month = 'Feb', Revenue, null)) as Feb_revenue, max(if (Month = 'Mar', Revenue, null)) from Revenue group by id")
+
  
