@@ -13,3 +13,7 @@ conf.set('spark.app.name','Revenue')
 sc = pyspark.SparkContext.getOrCreate(conf=conf)
 spark = SQLContext(sc)
 
+#reading revenue data file
+revenue = spark.read.csv("file:///home/gopalkrishna/Spark_dir/revenue")
+
+ 
