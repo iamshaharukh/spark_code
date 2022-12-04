@@ -22,3 +22,5 @@ revenu1.registerTempTable("Revenue")
 revenue_final = spark.sql("select id,max(if (Month = 'Jan', Revenue, null)) as Jan_revenue, max(if (Month = 'Feb', Revenue, null)) as Feb_revenue, max(if (Month = 'Mar', Revenue, null)) from Revenue group by id")
 
  
+#file writing
+revenue_final.write.mode("overwrite").csv("hdfs://localhost:8020/Revenue_final")
