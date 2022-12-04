@@ -1,1 +1,6 @@
+#Generating Spark Application For Revenue Project
 
+from pyspark.sql.types import *
+from pyspark.sql.functions import *
+import pyspark
+from pyspark.sql import SQLContext
