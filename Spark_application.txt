@@ -1,6 +1,15 @@
 #Generating Spark Application For Revenue Project
 
+#importing necessary packages
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
 import pyspark
 from pyspark.sql import SQLContext
+
+#creating Spark session
+conf = pyspark.SparkConf()
+conf.set('spark.app.name','Revenue')
+
+sc = pyspark.SparkContext.getOrCreate(conf=conf)
+spark = SQLContext(sc)
+
